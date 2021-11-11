@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		433B1E0F273C3A48008E01EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E0E273C3A48008E01EF /* AppDelegate.swift */; };
 		433B1E11273C3A48008E01EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E10273C3A48008E01EF /* SceneDelegate.swift */; };
-		433B1E13273C3A48008E01EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E12273C3A48008E01EF /* ViewController.swift */; };
 		433B1E16273C3A48008E01EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433B1E14273C3A48008E01EF /* Main.storyboard */; };
 		433B1E19273C3A48008E01EF /* Lyrics.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E17273C3A48008E01EF /* Lyrics.xcdatamodeld */; };
 		433B1E1B273C3A4A008E01EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433B1E1A273C3A4A008E01EF /* Assets.xcassets */; };
 		433B1E1E273C3A4A008E01EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433B1E1C273C3A4A008E01EF /* LaunchScreen.storyboard */; };
+		433B1E26273C3A6F008E01EF /* LyricsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E25273C3A6F008E01EF /* LyricsAPI.swift */; };
+		433B1E28273C4628008E01EF /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E27273C4628008E01EF /* ContentViewModel.swift */; };
+		433B1E2A273C4ADD008E01EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E29273C4ADD008E01EF /* HomeView.swift */; };
+		433B1E2C273D9235008E01EF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E2B273D9235008E01EF /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		433B1E0B273C3A48008E01EF /* Lyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433B1E0E273C3A48008E01EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		433B1E10273C3A48008E01EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		433B1E12273C3A48008E01EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		433B1E15273C3A48008E01EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		433B1E18273C3A48008E01EF /* Lyrics.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lyrics.xcdatamodel; sourceTree = "<group>"; };
 		433B1E1A273C3A4A008E01EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		433B1E1D273C3A4A008E01EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		433B1E1F273C3A4A008E01EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		433B1E25273C3A6F008E01EF /* LyricsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsAPI.swift; sourceTree = "<group>"; };
+		433B1E27273C4628008E01EF /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		433B1E29273C4ADD008E01EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		433B1E2B273D9235008E01EF /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +66,15 @@
 			children = (
 				433B1E0E273C3A48008E01EF /* AppDelegate.swift */,
 				433B1E10273C3A48008E01EF /* SceneDelegate.swift */,
-				433B1E12273C3A48008E01EF /* ViewController.swift */,
+				433B1E25273C3A6F008E01EF /* LyricsAPI.swift */,
+				433B1E29273C4ADD008E01EF /* HomeView.swift */,
 				433B1E14273C3A48008E01EF /* Main.storyboard */,
 				433B1E1A273C3A4A008E01EF /* Assets.xcassets */,
 				433B1E1C273C3A4A008E01EF /* LaunchScreen.storyboard */,
 				433B1E1F273C3A4A008E01EF /* Info.plist */,
 				433B1E17273C3A48008E01EF /* Lyrics.xcdatamodeld */,
+				433B1E27273C4628008E01EF /* ContentViewModel.swift */,
+				433B1E2B273D9235008E01EF /* StringExtensions.swift */,
 			);
 			path = Lyrics;
 			sourceTree = "<group>";
@@ -141,7 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				433B1E13273C3A48008E01EF /* ViewController.swift in Sources */,
+				433B1E2A273C4ADD008E01EF /* HomeView.swift in Sources */,
+				433B1E26273C3A6F008E01EF /* LyricsAPI.swift in Sources */,
+				433B1E28273C4628008E01EF /* ContentViewModel.swift in Sources */,
+				433B1E2C273D9235008E01EF /* StringExtensions.swift in Sources */,
 				433B1E19273C3A48008E01EF /* Lyrics.xcdatamodeld in Sources */,
 				433B1E0F273C3A48008E01EF /* AppDelegate.swift in Sources */,
 				433B1E11273C3A48008E01EF /* SceneDelegate.swift in Sources */,
@@ -296,9 +308,11 @@
 				DEVELOPMENT_TEAM = PXJDJW8Z9X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lyrics/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow access to microphone to detect details about songs.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -306,7 +320,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Shubhamarya.Lyrics;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Shubhamarya.ShazamLyrics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -324,9 +338,11 @@
 				DEVELOPMENT_TEAM = PXJDJW8Z9X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lyrics/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow access to microphone to detect details about songs.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -334,7 +350,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Shubhamarya.Lyrics;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Shubhamarya.ShazamLyrics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
