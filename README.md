@@ -14,6 +14,6 @@ https://rudrank.blog/experimenting-with-shazamkit
 https://www.youtube.com/watch?v=QMO2cJNtn50
 
 #### Note
->This is not a completed project. It may have some errors or bugs.
->The lyrics API may not work well with lyrics in other languages (not English).
+-This is not a completed project. It may have some errors or bugs.
+-The lyrics API may not work well with lyrics in other languages (not English).
 
