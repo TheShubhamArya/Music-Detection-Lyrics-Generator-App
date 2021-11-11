@@ -8,7 +8,7 @@ It is a very simple API to use. The format is https://api.lyrics.ovh/v1/artistNa
 
 While this works well most of the time, there may be instances when there are multiple artists in a song and the lyrics are not found. Also, multiple artists that are added to the artist name using keywords like "and", "ft", "feat", etc, are not detected with this API. To get around this problem, I remove all these keywords and other artist name from the main artist name, and feed the API only the main artist name. This seems to work well with the few songs I have tested.
 
-## Good source to follow along the code
+## Good source to understand ShazamKit
 https://developer.apple.com/documentation/shazamkit
 
 https://rudrank.blog/experimenting-with-shazamkit
