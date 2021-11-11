@@ -8,3 +8,7 @@ https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song/search?console=1
 https://rudrank.blog/experimenting-with-shazamkit
 
 https://www.youtube.com/watch?v=QMO2cJNtn50
+
+###Note
+This is not a completed project. It may have some errors or bugs.
+
