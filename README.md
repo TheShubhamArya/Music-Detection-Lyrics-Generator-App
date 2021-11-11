@@ -9,6 +9,6 @@ https://rudrank.blog/experimenting-with-shazamkit
 
 https://www.youtube.com/watch?v=QMO2cJNtn50
 
-###Note
-This is not a completed project. It may have some errors or bugs.
+######Note
+>This is not a completed project. It may have some errors or bugs.
 
