@@ -4,6 +4,7 @@ This is a mysic detection app that uses ShazamKit to detect music. Once it detec
 ## Link for the lyrics API
 https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song/search?console=1
 
-## Good source to follow the code
+## Good source to follow along the code
 https://rudrank.blog/experimenting-with-shazamkit
+
 https://www.youtube.com/watch?v=QMO2cJNtn50
