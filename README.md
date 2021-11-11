@@ -1,5 +1,5 @@
 # Music-Detection-Lyrics-Generator-App
-This is a mysic detection app that uses ShazamKit to detect music. Once it detects the music, it takes the information about that music to find lyrics for that song using a Lyrics API.
+This is a music detection iOS app made using the SwiftUI framework that uses ShazamKit to detect music. Once it detects the music, it takes the information about that music to find lyrics for that song using a Lyrics API.
 
 ## Link for the lyrics API
 https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song/search?console=1
