@@ -16,17 +16,20 @@ struct ShazamMedia: Decodable {
     let albumArtURL: URL?
     let genres: [String]
     let lyrics: String?
+    let webURL: URL?
 }
 
-class ContentViewModel: NSObject, ObservableObject {
+class HomeViewModel: NSObject, ObservableObject {
     
-    @Published var shazamMedia = ShazamMedia(title: "Title...",
-                                             subtitle: "Subtitle...",
-                                             artistName: "Artist Name...",
+    @Published var shazamMedia = ShazamMedia(title: "Tap Listen",
+                                             subtitle: "",
+                                             artistName: "Find songs, lyrics, and more",
                                              albumArtURL: URL(string: "https://wwww.google.com"),
-                                             genres: ["pop"],
-                                             lyrics: "No lyrics found")
+                                             genres: [],
+                                             lyrics: "",
+                                             webURL: nil)
     @Published var isRecording = false
+    @Published var foundNothing = false
     
     private var audioEngine = AVAudioEngine()
     private let session = SHSession()
@@ -72,15 +75,29 @@ class ContentViewModel: NSObject, ObservableObject {
             return
         }
     }
+    
+    func setDefaultValuesForMusicNotFound() {
+        DispatchQueue.main.async {
+            self.foundNothing = false
+            self.shazamMedia = ShazamMedia(title: "Could not find music.",
+                                           subtitle: "",
+                                           artistName: "",
+                                           albumArtURL: URL(string: "https://wwww.google.com"),
+                                           genres: [],
+                                           lyrics: "",
+                                           webURL: nil)
+        }
+    }
 }
 
-extension ContentViewModel: SHSessionDelegate {
+extension HomeViewModel: SHSessionDelegate {
     
     func session(_ session: SHSession, didFind match: SHMatch) {
         stopListening()
+        setDefaultValuesForMusicNotFound()
         let mediaItems = match.mediaItems
         if let firstItem = mediaItems.first {
-            var lyrics = "No lyrics found"
+            var lyrics : String = ""
             let songDetails = LyricsAPI(artist: firstItem.artist?.mainArtistName ?? "",
                                    song: firstItem.title ?? "")
             songDetails.fetchLyrics { result in
@@ -90,21 +107,26 @@ extension ContentViewModel: SHSessionDelegate {
                 case .success(let song):
                     lyrics = song.lyrics.cleanedLyrics
                 }
+                
                 let shazamMedia = ShazamMedia(title: firstItem.title,
                                               subtitle: firstItem.subtitle,
                                               artistName: firstItem.artist,
                                               albumArtURL: firstItem.artworkURL,
                                               genres: firstItem.genres,
-                                              lyrics: lyrics)
+                                              lyrics: lyrics,
+                                              webURL: firstItem.webURL)
                 
                 DispatchQueue.main.async {
                     self.shazamMedia = shazamMedia
                 }
             }
+        } else {
+            print("nothing found")
         }
     }
     
     func session(_ session: SHSession, didNotFindMatchFor signature: SHSignature, error: Error?) {
+        setDefaultValuesForMusicNotFound()
         stopListening()
     }
 }

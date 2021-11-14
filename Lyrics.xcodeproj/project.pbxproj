@@ -14,9 +14,14 @@
 		433B1E1B273C3A4A008E01EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433B1E1A273C3A4A008E01EF /* Assets.xcassets */; };
 		433B1E1E273C3A4A008E01EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433B1E1C273C3A4A008E01EF /* LaunchScreen.storyboard */; };
 		433B1E26273C3A6F008E01EF /* LyricsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E25273C3A6F008E01EF /* LyricsAPI.swift */; };
-		433B1E28273C4628008E01EF /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E27273C4628008E01EF /* ContentViewModel.swift */; };
+		433B1E28273C4628008E01EF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E27273C4628008E01EF /* HomeViewModel.swift */; };
 		433B1E2A273C4ADD008E01EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E29273C4ADD008E01EF /* HomeView.swift */; };
 		433B1E2C273D9235008E01EF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E2B273D9235008E01EF /* StringExtensions.swift */; };
+		433B1E2E273DB15F008E01EF /* NavigationBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E2D273DB15F008E01EF /* NavigationBarButtonView.swift */; };
+		433B1E31273DD665008E01EF /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E30273DD665008E01EF /* ColorExtension.swift */; };
+		433B1E39273E24B6008E01EF /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E38273E24B6008E01EF /* ListView.swift */; };
+		433B1E3B273E2D0A008E01EF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E3A273E2D0A008E01EF /* SettingsView.swift */; };
+		433B1E3D273F7687008E01EF /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E3C273F7687008E01EF /* ListRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +34,14 @@
 		433B1E1D273C3A4A008E01EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		433B1E1F273C3A4A008E01EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		433B1E25273C3A6F008E01EF /* LyricsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsAPI.swift; sourceTree = "<group>"; };
-		433B1E27273C4628008E01EF /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		433B1E27273C4628008E01EF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		433B1E29273C4ADD008E01EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		433B1E2B273D9235008E01EF /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		433B1E2D273DB15F008E01EF /* NavigationBarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButtonView.swift; sourceTree = "<group>"; };
+		433B1E30273DD665008E01EF /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		433B1E38273E24B6008E01EF /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		433B1E3A273E2D0A008E01EF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		433B1E3C273F7687008E01EF /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,19 +74,96 @@
 		433B1E0D273C3A48008E01EF /* Lyrics */ = {
 			isa = PBXGroup;
 			children = (
+				433B1E2F273DB1DA008E01EF /* Extensions */,
 				433B1E0E273C3A48008E01EF /* AppDelegate.swift */,
 				433B1E10273C3A48008E01EF /* SceneDelegate.swift */,
-				433B1E25273C3A6F008E01EF /* LyricsAPI.swift */,
-				433B1E29273C4ADD008E01EF /* HomeView.swift */,
+				433B1E32273E1E42008E01EF /* Home */,
+				433B1E37273E2498008E01EF /* List */,
+				433B1E3E273F772C008E01EF /* Settings */,
+				433B1E36273E2441008E01EF /* ViewComponents */,
 				433B1E14273C3A48008E01EF /* Main.storyboard */,
 				433B1E1A273C3A4A008E01EF /* Assets.xcassets */,
 				433B1E1C273C3A4A008E01EF /* LaunchScreen.storyboard */,
 				433B1E1F273C3A4A008E01EF /* Info.plist */,
 				433B1E17273C3A48008E01EF /* Lyrics.xcdatamodeld */,
-				433B1E27273C4628008E01EF /* ContentViewModel.swift */,
-				433B1E2B273D9235008E01EF /* StringExtensions.swift */,
 			);
 			path = Lyrics;
+			sourceTree = "<group>";
+		};
+		433B1E2F273DB1DA008E01EF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E2B273D9235008E01EF /* StringExtensions.swift */,
+				433B1E30273DD665008E01EF /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		433B1E32273E1E42008E01EF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E35273E242F008E01EF /* Model */,
+				433B1E34273E2423008E01EF /* View */,
+				433B1E33273E2415008E01EF /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		433B1E33273E2415008E01EF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E27273C4628008E01EF /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		433B1E34273E2423008E01EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E29273C4ADD008E01EF /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		433B1E35273E242F008E01EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E25273C3A6F008E01EF /* LyricsAPI.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		433B1E36273E2441008E01EF /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E2D273DB15F008E01EF /* NavigationBarButtonView.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		433B1E37273E2498008E01EF /* List */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E3F273F773A008E01EF /* View */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		433B1E3E273F772C008E01EF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E3A273E2D0A008E01EF /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		433B1E3F273F773A008E01EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E3C273F7687008E01EF /* ListRowView.swift */,
+				433B1E38273E24B6008E01EF /* ListView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,11 +239,16 @@
 			files = (
 				433B1E2A273C4ADD008E01EF /* HomeView.swift in Sources */,
 				433B1E26273C3A6F008E01EF /* LyricsAPI.swift in Sources */,
-				433B1E28273C4628008E01EF /* ContentViewModel.swift in Sources */,
+				433B1E39273E24B6008E01EF /* ListView.swift in Sources */,
+				433B1E28273C4628008E01EF /* HomeViewModel.swift in Sources */,
+				433B1E31273DD665008E01EF /* ColorExtension.swift in Sources */,
 				433B1E2C273D9235008E01EF /* StringExtensions.swift in Sources */,
+				433B1E2E273DB15F008E01EF /* NavigationBarButtonView.swift in Sources */,
 				433B1E19273C3A48008E01EF /* Lyrics.xcdatamodeld in Sources */,
 				433B1E0F273C3A48008E01EF /* AppDelegate.swift in Sources */,
 				433B1E11273C3A48008E01EF /* SceneDelegate.swift in Sources */,
+				433B1E3B273E2D0A008E01EF /* SettingsView.swift in Sources */,
+				433B1E3D273F7687008E01EF /* ListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PXJDJW8Z9X;
@@ -333,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PXJDJW8Z9X;
