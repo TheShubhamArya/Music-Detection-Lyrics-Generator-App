@@ -10,26 +10,41 @@ import ShazamKit
 
 struct ListView: View {
     
-    var array = [1,2,3,4,5]
-    
     @StateObject private var viewModel = HomeViewModel()
-    //    @Environment(\.openURL) var openURL
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: Song.entity(), sortDescriptors: []) var songs : FetchedResults<Song>
     
     var body: some View {
         VStack {
             List {
-                ForEach(array, id: \.self) { item in
+                ForEach(songs, id: \.id) { song in
                     {
-                        ListRowView()
+                        NavigationLink(destination: ListDetailView(music: song)){
+                            ListRowView(song: song)
+                        }
                     }()
                         .buttonStyle(.plain)
                         .listRowSeparator(.hidden)
                 }
+                .onDelete(perform: delete(at:))
             }
             .listStyle(.plain)
         }
         .navigationTitle("Saved")
         .navigationViewStyle(.stack)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                EditButton()
+            }
+        }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        for offset in offsets {
+            let song = songs[offset]
+            moc.delete(song)
+        }
+        try? self.moc.save()
     }
 }
 

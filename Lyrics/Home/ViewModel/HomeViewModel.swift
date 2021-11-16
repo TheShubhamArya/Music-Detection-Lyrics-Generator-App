@@ -17,6 +17,7 @@ struct ShazamMedia: Decodable {
     let genres: [String]
     let lyrics: String?
     let webURL: URL?
+    let shazamID : String?
 }
 
 class HomeViewModel: NSObject, ObservableObject {
@@ -27,9 +28,11 @@ class HomeViewModel: NSObject, ObservableObject {
                                              albumArtURL: URL(string: "https://wwww.google.com"),
                                              genres: [],
                                              lyrics: "",
-                                             webURL: nil)
+                                             webURL: nil,
+                                             shazamID: nil)
     @Published var isRecording = false
-    @Published var foundNothing = false
+    @Published var foundNothing = true
+    
     
     private var audioEngine = AVAudioEngine()
     private let session = SHSession()
@@ -78,14 +81,26 @@ class HomeViewModel: NSObject, ObservableObject {
     
     func setDefaultValuesForMusicNotFound() {
         DispatchQueue.main.async {
-            self.foundNothing = false
+            self.foundNothing = true
             self.shazamMedia = ShazamMedia(title: "Could not find music.",
                                            subtitle: "",
                                            artistName: "",
                                            albumArtURL: URL(string: "https://wwww.google.com"),
                                            genres: [],
                                            lyrics: "",
-                                           webURL: nil)
+                                           webURL: nil,
+                                           shazamID: nil)
+        }
+    }
+    
+    
+    
+    func listenTapped() {
+        isRecording = !isRecording
+        if !isRecording {
+            stopListening()
+        } else {
+            startOrEndListening()
         }
     }
 }
@@ -94,7 +109,9 @@ extension HomeViewModel: SHSessionDelegate {
     
     func session(_ session: SHSession, didFind match: SHMatch) {
         stopListening()
-        setDefaultValuesForMusicNotFound()
+        DispatchQueue.main.async {
+            self.foundNothing = false
+        }
         let mediaItems = match.mediaItems
         if let firstItem = mediaItems.first {
             var lyrics : String = ""
@@ -114,7 +131,8 @@ extension HomeViewModel: SHSessionDelegate {
                                               albumArtURL: firstItem.artworkURL,
                                               genres: firstItem.genres,
                                               lyrics: lyrics,
-                                              webURL: firstItem.webURL)
+                                              webURL: firstItem.webURL,
+                                              shazamID: firstItem.shazamID)
                 
                 DispatchQueue.main.async {
                     self.shazamMedia = shazamMedia

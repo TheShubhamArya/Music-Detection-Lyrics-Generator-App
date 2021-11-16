@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        
-        let host = UIHostingController(rootView: HomeView())
+        let moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        let host = UIHostingController(rootView: HomeView().environment(\.managedObjectContext, moc!))
         window?.rootViewController = host
         
         window?.makeKeyAndVisible()

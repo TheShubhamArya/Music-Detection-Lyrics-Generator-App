@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-enum ButtonType {
-    case settings, save, list
-}
-
 struct NavigationBarButtonView: View {
     var imageName : String
     var buttonType : ButtonType
@@ -21,7 +17,6 @@ struct NavigationBarButtonView: View {
                 .font(.system(size: 18))
                 .foregroundColor(.pink)
                 .padding()
-                .mask(Circle())
         }.frame(width: 36, height: 36)
     }
     

@@ -11,11 +11,6 @@ struct SongDetails: Decodable, Hashable {
     let lyrics: String
 }
 
-enum ErrorStatus : Error {
-    case noDataAvailable
-    case cannotProcessdata
-}
-
 struct LyricsAPI {
     
     var resourceURL : URL

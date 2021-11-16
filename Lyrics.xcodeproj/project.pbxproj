@@ -22,6 +22,10 @@
 		433B1E39273E24B6008E01EF /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E38273E24B6008E01EF /* ListView.swift */; };
 		433B1E3B273E2D0A008E01EF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E3A273E2D0A008E01EF /* SettingsView.swift */; };
 		433B1E3D273F7687008E01EF /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E3C273F7687008E01EF /* ListRowView.swift */; };
+		433B1E4227418837008E01EF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E4127418837008E01EF /* Enums.swift */; };
+		433B1E44274188F6008E01EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E43274188F6008E01EF /* Constants.swift */; };
+		433B1E47274333A1008E01EF /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E46274333A1008E01EF /* ListDetailView.swift */; };
+		433B1E4927433C70008E01EF /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E4827433C70008E01EF /* DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		433B1E38273E24B6008E01EF /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		433B1E3A273E2D0A008E01EF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		433B1E3C273F7687008E01EF /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
+		433B1E4127418837008E01EF /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		433B1E43274188F6008E01EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		433B1E46274333A1008E01EF /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
+		433B1E4827433C70008E01EF /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +82,13 @@
 		433B1E0D273C3A48008E01EF /* Lyrics */ = {
 			isa = PBXGroup;
 			children = (
+				433B1E402741881D008E01EF /* Utility */,
 				433B1E2F273DB1DA008E01EF /* Extensions */,
 				433B1E0E273C3A48008E01EF /* AppDelegate.swift */,
 				433B1E10273C3A48008E01EF /* SceneDelegate.swift */,
 				433B1E32273E1E42008E01EF /* Home */,
 				433B1E37273E2498008E01EF /* List */,
+				433B1E4527433389008E01EF /* List Detail */,
 				433B1E3E273F772C008E01EF /* Settings */,
 				433B1E36273E2441008E01EF /* ViewComponents */,
 				433B1E14273C3A48008E01EF /* Main.storyboard */,
@@ -95,6 +105,7 @@
 			children = (
 				433B1E2B273D9235008E01EF /* StringExtensions.swift */,
 				433B1E30273DD665008E01EF /* ColorExtension.swift */,
+				433B1E4827433C70008E01EF /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -164,6 +175,23 @@
 				433B1E38273E24B6008E01EF /* ListView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		433B1E402741881D008E01EF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E4127418837008E01EF /* Enums.swift */,
+				433B1E43274188F6008E01EF /* Constants.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		433B1E4527433389008E01EF /* List Detail */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E46274333A1008E01EF /* ListDetailView.swift */,
+			);
+			path = "List Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,9 +272,13 @@
 				433B1E31273DD665008E01EF /* ColorExtension.swift in Sources */,
 				433B1E2C273D9235008E01EF /* StringExtensions.swift in Sources */,
 				433B1E2E273DB15F008E01EF /* NavigationBarButtonView.swift in Sources */,
+				433B1E4227418837008E01EF /* Enums.swift in Sources */,
 				433B1E19273C3A48008E01EF /* Lyrics.xcdatamodeld in Sources */,
 				433B1E0F273C3A48008E01EF /* AppDelegate.swift in Sources */,
 				433B1E11273C3A48008E01EF /* SceneDelegate.swift in Sources */,
+				433B1E44274188F6008E01EF /* Constants.swift in Sources */,
+				433B1E47274333A1008E01EF /* ListDetailView.swift in Sources */,
+				433B1E4927433C70008E01EF /* DateExtensions.swift in Sources */,
 				433B1E3B273E2D0A008E01EF /* SettingsView.swift in Sources */,
 				433B1E3D273F7687008E01EF /* ListRowView.swift in Sources */,
 			);

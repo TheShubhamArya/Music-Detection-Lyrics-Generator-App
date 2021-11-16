@@ -9,29 +9,38 @@ import SwiftUI
 
 struct ListRowView: View {
     
+    var song : Song
+    
     var body: some View {
         ZStack(alignment: .leading) {
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.pink, lineWidth: 0.5)
             HStack {
-                Image(systemName: "music.quarternote.3")
-                    .font(.system(size: 30))
-                    .padding()
+                AsyncImage(url: song.albumArtURL) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 70)
+                        .cornerRadius(5)
+                        .padding(.trailing)
+                        .padding(.vertical, 5)
+                } placeholder: {
+                    Image(systemName: "music.quarternote.3")
+                        .font(.system(size: 60))
+                        .frame(width: 70)
+                        .padding(.trailing)
+                        .redacted(reason: .placeholder)
+                }
+                
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("Song name")
-                        .font(.title3)
+                    Text(song.title ?? "No title")
+                        .font(.system(size: 17))
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
-                    Text("Artist name")
+                        .lineLimit(2)
+                    Text(song.artistName ?? "No artist")
                         .font(.body)
                         .multilineTextAlignment(.leading)
+                        .lineLimit(2)
                 }
-                Spacer()
-                Image(systemName: "chevron.forward")
-                    .font(Font.system(.caption).weight(.bold))
-                    .foregroundColor(Color(UIColor.tertiaryLabel))
-                    .padding()
-                
             }
         }
     }
@@ -39,6 +48,6 @@ struct ListRowView: View {
 
 struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ListRowView()
+        ListRowView(song: Song())
     }
 }

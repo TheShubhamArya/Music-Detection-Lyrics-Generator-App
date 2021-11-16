@@ -12,6 +12,8 @@ import LinkPresentation
 struct HomeView: View {
     
     @StateObject private var viewModel = HomeViewModel()
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: Song.entity(), sortDescriptors: []) var songs : FetchedResults<Song>
     
     var body: some View {
         let music = viewModel.shazamMedia
@@ -50,14 +52,13 @@ struct HomeView: View {
                             }
                         } placeholder: {
                             RoundedRectangle(cornerRadius: 10)
-                            
                                 .foregroundColor(.clear)
                         }
                         .cornerRadius(10)
                         .frame(height: ((music.lyrics!.isEmpty) && (music.webURL != nil)) ? fullView.size.height / 2 :  fullView.size.height / 3)
                         
                         VStack {
-                            Text(didFindSong())//music.title ?? "Title")
+                            Text(music.title ?? "Title")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                                 .multilineTextAlignment(.center)
@@ -106,7 +107,8 @@ struct HomeView: View {
                         Spacer()
                         
                         Button(action: {
-                            listenTapped()
+                            simpleSuccess()
+                            viewModel.listenTapped()
                         }) {
                             Text(viewModel.isRecording ? "Listening..." : "Listen")
                                 .font(.title2)
@@ -126,36 +128,58 @@ struct HomeView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     NavigationBarButtonView(imageName: "gear", buttonType: .settings)
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationBarButtonView(imageName: "square.and.arrow.down", buttonType: .save)
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    if !viewModel.foundNothing {
+                    Button(action: shareTapped) {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.system(size: 18))
+                            .foregroundColor(.pink)
+                    }
+                    Button(action: saveTapped) {
+                        Image(systemName: "square.and.arrow.down")
+                            .font(.system(size: 18))
+                            .foregroundColor(.pink)
+                    }
+                    }
                     NavigationBarButtonListView(imageName: "line.horizontal.3", buttonType: .list)
                 }
             }
         }
     }
     
+    func shareTapped() {
+        guard let urlShare = viewModel.shazamMedia.webURL else { return }
+        let message = "\n" + (viewModel.shazamMedia.title ?? "") + " - " + (viewModel.shazamMedia.artistName ?? "")
+        
+        let activityVC = UIActivityViewController(activityItems: [urlShare, message], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+    }
+    
+    func saveTapped() {
+        let song = Song(context: self.moc)
+        let music = viewModel.shazamMedia
+        song.id = music.shazamID
+        song.title = music.title
+        song.subtitle = music.subtitle
+        song.artistName = music.artistName
+        if let webURL = music.webURL {
+            song.webURL = webURL
+        }
+        if let albumArtURL = music.albumArtURL {
+            song.albumArtURL = albumArtURL
+        }
+        song.dateSaved = Date()
+        song.lyrics = music.lyrics
+        do {
+            try self.moc.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     private func songRecognitionAnimation() -> Animation {
         viewModel.isRecording ? .easeInOut(duration: 1.4).repeatForever() : .default
-    }
-    
-    func didFindSong() -> String {
-        if viewModel.foundNothing {
-            return "Could not find song"
-        } else {
-            return viewModel.shazamMedia.title ?? "Title"
-        }
-    }
-    
-    func listenTapped() {
-        simpleSuccess()
-        viewModel.isRecording = !viewModel.isRecording
-        if !viewModel.isRecording {
-            viewModel.stopListening()
-        } else {
-            viewModel.startOrEndListening()
-        }
     }
     
     func simpleSuccess() {
@@ -163,6 +187,7 @@ struct HomeView: View {
         generator.notificationOccurred(.success)
     }
 }
+
 struct GradientButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
