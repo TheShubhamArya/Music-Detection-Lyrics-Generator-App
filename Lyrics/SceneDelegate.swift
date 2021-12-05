@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         let host = UIHostingController(rootView: HomeView().environment(\.managedObjectContext, moc!))
         window?.rootViewController = host
-        
+        window?.tintColor = .systemPink
         window?.makeKeyAndVisible()
     }
 

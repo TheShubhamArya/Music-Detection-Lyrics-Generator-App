@@ -17,7 +17,7 @@ struct ListView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(songs, id: \.id) { song in
+                ForEach(songs, id: \.uuid) { song in
                     {
                         NavigationLink(destination: ListDetailView(music: song)){
                             ListRowView(song: song)

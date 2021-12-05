@@ -26,6 +26,8 @@
 		433B1E44274188F6008E01EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E43274188F6008E01EF /* Constants.swift */; };
 		433B1E47274333A1008E01EF /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E46274333A1008E01EF /* ListDetailView.swift */; };
 		433B1E4927433C70008E01EF /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E4827433C70008E01EF /* DateExtensions.swift */; };
+		433B1E4B274384B4008E01EF /* SettingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E4A274384B4008E01EF /* SettingDetail.swift */; };
+		433B1E4E274384F8008E01EF /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433B1E4D274384F8008E01EF /* SettingsCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		433B1E43274188F6008E01EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		433B1E46274333A1008E01EF /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		433B1E4827433C70008E01EF /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		433B1E4A274384B4008E01EF /* SettingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDetail.swift; sourceTree = "<group>"; };
+		433B1E4D274384F8008E01EF /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +167,9 @@
 		433B1E3E273F772C008E01EF /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				433B1E4C274384C7008E01EF /* Model */,
 				433B1E3A273E2D0A008E01EF /* SettingsView.swift */,
+				433B1E4D274384F8008E01EF /* SettingsCellView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -192,6 +198,14 @@
 				433B1E46274333A1008E01EF /* ListDetailView.swift */,
 			);
 			path = "List Detail";
+			sourceTree = "<group>";
+		};
+		433B1E4C274384C7008E01EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				433B1E4A274384B4008E01EF /* SettingDetail.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,12 +284,14 @@
 				433B1E39273E24B6008E01EF /* ListView.swift in Sources */,
 				433B1E28273C4628008E01EF /* HomeViewModel.swift in Sources */,
 				433B1E31273DD665008E01EF /* ColorExtension.swift in Sources */,
+				433B1E4E274384F8008E01EF /* SettingsCellView.swift in Sources */,
 				433B1E2C273D9235008E01EF /* StringExtensions.swift in Sources */,
 				433B1E2E273DB15F008E01EF /* NavigationBarButtonView.swift in Sources */,
 				433B1E4227418837008E01EF /* Enums.swift in Sources */,
 				433B1E19273C3A48008E01EF /* Lyrics.xcdatamodeld in Sources */,
 				433B1E0F273C3A48008E01EF /* AppDelegate.swift in Sources */,
 				433B1E11273C3A48008E01EF /* SceneDelegate.swift in Sources */,
+				433B1E4B274384B4008E01EF /* SettingDetail.swift in Sources */,
 				433B1E44274188F6008E01EF /* Constants.swift in Sources */,
 				433B1E47274333A1008E01EF /* ListDetailView.swift in Sources */,
 				433B1E4927433C70008E01EF /* DateExtensions.swift in Sources */,

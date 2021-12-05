@@ -32,7 +32,8 @@ class HomeViewModel: NSObject, ObservableObject {
                                              shazamID: nil)
     @Published var isRecording = false
     @Published var foundNothing = true
-    
+    @Published var videoURL : URL?
+    let defaults = UserDefaults.standard
     
     private var audioEngine = AVAudioEngine()
     private let session = SHSession()
@@ -93,12 +94,19 @@ class HomeViewModel: NSObject, ObservableObject {
         }
     }
     
-    
+    func shareTapped() {
+        guard let urlShare = shazamMedia.webURL else { return }
+        let message = "\n" + (shazamMedia.title ?? "") + " - " + (shazamMedia.artistName ?? "")
+        let activityVC = UIActivityViewController(activityItems: [urlShare, message], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+    }
     
     func listenTapped() {
         isRecording = !isRecording
         if !isRecording {
-            stopListening()
+            if !defaults.bool(forKey: ToggleType.partyMode.rawValue) {
+                stopListening()
+            }
         } else {
             startOrEndListening()
         }
@@ -108,7 +116,9 @@ class HomeViewModel: NSObject, ObservableObject {
 extension HomeViewModel: SHSessionDelegate {
     
     func session(_ session: SHSession, didFind match: SHMatch) {
-        stopListening()
+        if !defaults.bool(forKey: ToggleType.partyMode.rawValue) {
+            stopListening()
+        }
         DispatchQueue.main.async {
             self.foundNothing = false
         }
@@ -133,8 +143,8 @@ extension HomeViewModel: SHSessionDelegate {
                                               lyrics: lyrics,
                                               webURL: firstItem.webURL,
                                               shazamID: firstItem.shazamID)
-                
                 DispatchQueue.main.async {
+                    self.videoURL = firstItem.videoURL
                     self.shazamMedia = shazamMedia
                 }
             }
@@ -145,6 +155,8 @@ extension HomeViewModel: SHSessionDelegate {
     
     func session(_ session: SHSession, didNotFindMatchFor signature: SHSignature, error: Error?) {
         setDefaultValuesForMusicNotFound()
-        stopListening()
+        if !defaults.bool(forKey: ToggleType.partyMode.rawValue) {
+            stopListening()
+        }
     }
 }

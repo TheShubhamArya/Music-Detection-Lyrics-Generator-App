@@ -11,7 +11,9 @@ import LinkPresentation
 
 struct HomeView: View {
     
+    @State private var showSaveAlert = false
     @StateObject private var viewModel = HomeViewModel()
+    let defaults = UserDefaults.standard
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Song.entity(), sortDescriptors: []) var songs : FetchedResults<Song>
     
@@ -130,30 +132,28 @@ struct HomeView: View {
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     if !viewModel.foundNothing {
-                    Button(action: shareTapped) {
+                        Button(action: viewModel.shareTapped) {
                         Image(systemName: "square.and.arrow.up")
                             .font(.system(size: 18))
                             .foregroundColor(.pink)
                     }
-                    Button(action: saveTapped) {
-                        Image(systemName: "square.and.arrow.down")
-                            .font(.system(size: 18))
-                            .foregroundColor(.pink)
+                        Button(action: {
+                            saveTapped()
+                            showSaveAlert = true
+                        }) {
+                            Image(systemName: "square.and.arrow.down")
+                                .font(.system(size: 18))
+                                .foregroundColor(.pink)
+                        }
+                        .alert("Song saved", isPresented: $showSaveAlert) {
+
+                        }
                     }
-                    }
-                    NavigationBarButtonListView(imageName: "line.horizontal.3", buttonType: .list)
+                    NavigationBarButtonListView(imageName: "music.note.list", buttonType: .list)
                 }
             }
         }
-    }
-    
-    func shareTapped() {
-        guard let urlShare = viewModel.shazamMedia.webURL else { return }
-        let message = "\n" + (viewModel.shazamMedia.title ?? "") + " - " + (viewModel.shazamMedia.artistName ?? "")
-        
-        let activityVC = UIActivityViewController(activityItems: [urlShare, message], applicationActivities: nil)
-        UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
-    }
+    } 
     
     func saveTapped() {
         let song = Song(context: self.moc)
@@ -162,6 +162,7 @@ struct HomeView: View {
         song.title = music.title
         song.subtitle = music.subtitle
         song.artistName = music.artistName
+        song.uuid = UUID().uuidString
         if let webURL = music.webURL {
             song.webURL = webURL
         }
@@ -175,7 +176,6 @@ struct HomeView: View {
         } catch {
             print(error.localizedDescription)
         }
-        
     }
     
     private func songRecognitionAnimation() -> Animation {

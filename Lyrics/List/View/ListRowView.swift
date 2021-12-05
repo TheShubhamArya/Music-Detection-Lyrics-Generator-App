@@ -37,7 +37,7 @@ struct ListRowView: View {
                         .multilineTextAlignment(.leading)
                         .lineLimit(2)
                     Text(song.artistName ?? "No artist")
-                        .font(.body)
+                        .font(.system(size: 15))
                         .multilineTextAlignment(.leading)
                         .lineLimit(2)
                 }

@@ -15,7 +15,7 @@ struct ListDetailView: View {
                 AsyncImage(url: music.albumArtURL) { image in
                     image
                         .resizable()
-                        .scaledToFill()
+//                        .scaledToFill()
                         .blur(radius: 10, opaque: true)
                         .opacity(0.5)
                         .edgesIgnoringSafeArea(.all)
